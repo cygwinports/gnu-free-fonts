@@ -1,0 +1,17 @@
+inherit font
+
+HOMEPAGE="http://www.gnu.org/software/freefont/index.html"
+SRC_URI="mirror://gnu/freefont/freefont-sfd-${PV}.tar.gz"
+SRC_DIR="freefont-${PV}"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	sfd2ttf Free*.sfd
+}
+
+src_install() {
+	cd ${B}
+	fontinto TTF
+	dofont *.ttf
+}
