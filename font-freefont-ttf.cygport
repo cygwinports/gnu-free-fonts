@@ -1,0 +1,25 @@
+inherit font
+
+NAME="font-freefont-ttf"
+VERSION=20100919
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="GNU FreeFont font family"
+DESCRIPTION="GNU FreeFont is a free family of scalable outline fonts,
+suitable for general use on computers and for desktop publishing. It is
+Unicode-encoded for compatability with all modern operating systems."
+HOMEPAGE="http://www.gnu.org/software/freefont/index.html"
+SRC_URI="mirror://gnu/freefont/freefont-sfd-${VERSION}.tar.gz"
+SRC_DIR="freefont-${VERSION}"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	sfd2ttf Free*.sfd
+}
+
+src_install() {
+	cd ${B}
+	fontinto TTF
+	dofont *.ttf
+}

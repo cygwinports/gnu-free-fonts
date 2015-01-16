@@ -1,6 +1,0 @@
-category: X11
-requires: fontconfig mkfontdir mkfontscale font-encodings
-sdesc: "GNU FreeFont font family"
-ldesc: "GNU FreeFont is a free family of scalable outline fonts, 
-suitable for general use on computers and for desktop publishing. It is 
-Unicode-encoded for compatability with all modern operating systems."
