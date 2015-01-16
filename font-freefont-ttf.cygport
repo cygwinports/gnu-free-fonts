@@ -1,7 +1,7 @@
 inherit font
 
 NAME="font-freefont-ttf"
-VERSION=20100919
+VERSION=20120503
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="GNU FreeFont font family"
@@ -9,17 +9,26 @@ DESCRIPTION="GNU FreeFont is a free family of scalable outline fonts,
 suitable for general use on computers and for desktop publishing. It is
 Unicode-encoded for compatability with all modern operating systems."
 HOMEPAGE="http://www.gnu.org/software/freefont/index.html"
-SRC_URI="mirror://gnu/freefont/freefont-sfd-${VERSION}.tar.gz"
+SRC_URI="mirror://gnu/freefont/freefont-src-${VERSION}.tar.gz"
+SRC_URI+="
+	fedora/69-gnu-free-mono.conf
+	fedora/69-gnu-free-sans.conf
+	fedora/69-gnu-free-serif.conf
+"
 SRC_DIR="freefont-${VERSION}"
+PATCH_URI="fedora/gnu-free-fonts-devanagari-rendering.patch"
+
+ARCH=noarch
 
 src_compile() {
 	lndirs
 	cd ${B}
-	sfd2ttf Free*.sfd
+	cygmake ttf
 }
 
 src_install() {
 	cd ${B}
 	fontinto TTF
-	dofont *.ttf
+	dofont sfd/*.ttf
+	dofontconf *.conf
 }
