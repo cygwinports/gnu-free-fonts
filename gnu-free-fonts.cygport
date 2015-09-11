@@ -1,8 +1,8 @@
 inherit font
 
-NAME="font-freefont-ttf"
+NAME="gnu-free-fonts"
 VERSION=20120503
-RELEASE=1
+RELEASE=2
 CATEGORY="X11"
 SUMMARY="GNU FreeFont font family"
 DESCRIPTION="GNU FreeFont is a free family of scalable outline fonts,
@@ -18,6 +18,8 @@ SRC_URI+="
 SRC_DIR="freefont-${VERSION}"
 PATCH_URI="fedora/gnu-free-fonts-devanagari-rendering.patch"
 
+OBSOLETES="font-freefont-ttf"
+
 ARCH=noarch
 
 src_compile() {
@@ -28,7 +30,7 @@ src_compile() {
 
 src_install() {
 	cd ${B}
-	fontinto TTF
+	fontinto gnu-free
 	dofont sfd/*.ttf
 	dofontconf *.conf
 }
