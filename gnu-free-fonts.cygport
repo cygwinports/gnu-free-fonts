@@ -7,7 +7,7 @@ CATEGORY="X11"
 SUMMARY="GNU FreeFont font family"
 DESCRIPTION="GNU FreeFont is a free family of scalable outline fonts,
 suitable for general use on computers and for desktop publishing. It is
-Unicode-encoded for compatability with all modern operating systems."
+Unicode-encoded for compatibility with all modern operating systems."
 HOMEPAGE="http://www.gnu.org/software/freefont/index.html"
 SRC_URI="mirror://gnu/freefont/freefont-src-${VERSION}.tar.gz"
 SRC_URI+="
